@@ -1,11 +1,14 @@
 package WarsztatoweDwa;
 
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
 
 public class ZadanieDrugie {
     private WebDriver driver;
@@ -105,17 +108,17 @@ public class ZadanieDrugie {
 
     }
 
-   // @After
-   // public void screenShot() {
+    @After
+    public void screenShot() {
 
-       // File screenshot = ((TakesScreenshot) driver)
+    File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+         try {
+        FileUtils.copyFile(scrFile, new File("/Users/martasajewicz/Desktop/screen/screenshot.png"));
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
 
-               // .getScreenshotAs(OutputType.FILE);
-
-       // FileUtils.copyFile(screenshot, new File(fileName));
-
-    //}
-
+    }
 
 }
 
