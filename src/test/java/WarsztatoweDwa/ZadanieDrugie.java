@@ -117,7 +117,7 @@ public class ZadanieDrugie {
     } catch (IOException e) {
         e.printStackTrace();
     }
-
+         driver.close();
     }
 
 }
